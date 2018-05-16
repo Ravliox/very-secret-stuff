@@ -1,0 +1,27 @@
+<div id = "dialog">  
+    <h2 mat-dialog-title>Edit cell</h2>
+    <mat-dialog-content [formGroup]="dialogFormControl">
+    <mat-form-field>
+      <input matInput placeholder="Type" formControlName = "type">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Street" formControlName = "street">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Block" formControlName = "block">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Area" formControlName = "area">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Postcode" formControlName = "postcode">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Country" formControlName = "country">
+    </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="true" (click)="onSave()">Save</button>
+      <button mat-button [mat-dialog-close]="false">Cancel</button>
+    </mat-dialog-actions>
+  </div>

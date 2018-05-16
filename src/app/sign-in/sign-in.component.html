@@ -1,0 +1,24 @@
+<div id = "signin" fxLayout = "row" fxLayoutAlign="center center">  
+    <mat-card class="example-card" fxFlex="30" fxFlex.xs = "1 1 100%">
+        <mat-card-header>
+            <mat-card-title>{{'signin.title' | translate}}</mat-card-title>
+            <mat-card-subtitle>{{'signin.subtitle' | translate}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field [formGroup]="loginControl">
+                <input matInput type="text" [placeholder]="'signin.username' | translate" formControlName="login">
+            </mat-form-field>
+            <mat-form-field [formGroup]="loginControl">
+                <input matInput type="password" [placeholder]="'signin.password' | translate" formControlName="password">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions fxLayout = "row" fxLayoutAlign="center center">
+            <button mat-button (click)="signIn()">{{'signin.login' | translate}}</button>
+            <button mat-button (click)="signInReadOnly()">{{'signin.login_readonly' | translate}}</button>
+        </mat-card-actions>
+        <mat-card-footer fxLayout="row" fxLayoutAlign="space-between center">
+            <a routerLink="/">{{'signin.sign_up' | translate}}</a>
+            <a routerLink="/app">{{'signin.bad_test' | translate}}</a>
+        </mat-card-footer>
+    </mat-card>
+</div>

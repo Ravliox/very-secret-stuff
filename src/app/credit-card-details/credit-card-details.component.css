@@ -1,0 +1,7 @@
+.hidden {
+    visibility: hidden;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{
+    background-color: #05275e !important;
+}

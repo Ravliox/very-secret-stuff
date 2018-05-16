@@ -1,0 +1,52 @@
+<div fxLayout="row" fxLayoutAlign="center center" fxFlex = "1 1 100%" id = "signUpPage">
+  <mat-card fxFlex = "50" fxFlex.xs = "1 1 100%">
+    <mat-card-header>
+      <mat-card-title>{{'signup.title' | translate }}</mat-card-title>
+      <mat-card-subtitle>{{'signup.subtitle' | translate }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content [formGroup]="signUpControl">
+      <div fxLayout="column" fxLayout.lt-md="column" fxLayoutAlign="start center" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+        <mat-form-field>
+            <mat-select [placeholder]="'signup.title_person' | translate" formControlName="title" required>
+                <mat-option *ngFor = "let title of titles" [value] = "title.value"> {{ title.viewValue | translate}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf = "signUpControl.controls.title.invalid">{{ getError("title") }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>      
+          <input matInput [placeholder]="'signup.first_name' | translate" formControlName = "first_name" required>
+          <mat-error *ngIf="signUpControl.controls.first_name.invalid">{{getError("first_name")}}</mat-error>   
+        </mat-form-field>
+        <mat-form-field>      
+          <input matInput [placeholder]="'signup.middle_name' | translate" formControlName = "middle_name">
+          <mat-error *ngIf="signUpControl.controls.middle_name.invalid">{{getError("middle_name")}}</mat-error>   
+        </mat-form-field>
+        <mat-form-field>      
+          <input matInput [placeholder]="'signup.last_name' | translate" formControlName = "last_name" required>
+          <mat-error *ngIf="signUpControl.controls.last_name.invalid">{{getError("last_name")}}</mat-error>   
+        </mat-form-field>
+        <mat-form-field>      
+          <input matInput [placeholder]="'signup.email' | translate" formControlName = "email" required>
+          <mat-error *ngIf="signUpControl.controls.email.invalid">{{getError("email")}}</mat-error>   
+        </mat-form-field>
+        <mat-form-field>      
+          <input matInput [placeholder]="'signup.username' | translate" formControlName = "username" required>
+          <mat-error *ngIf="signUpControl.controls.username.invalid">{{getError("username")}}</mat-error>   
+        </mat-form-field>
+        <mat-form-field>      
+          <input matInput type="password" [placeholder]="'signup.password' | translate" formControlName = "password" (input) = "checkConfirm()" required>
+          <mat-error *ngIf="signUpControl.controls.password.invalid">{{getError("password")}}</mat-error>   
+        </mat-form-field>
+        <mat-form-field>      
+          <input matInput type="password" [placeholder]="'signup.confirm_password' | translate" formControlName = "confirm_pass" required>
+          <mat-error *ngIf="signUpControl.controls.confirm_pass.invalid">{{getError("confirm_pass")}}</mat-error>   
+        </mat-form-field>                   
+      </div>
+    </mat-card-content>
+    <mat-card-actions fxLayout="column" fxLayoutAlign="start center">
+      <button mat-button (click) = "postUser()">{{'signup.sign_up' | translate}}</button>
+    </mat-card-actions>
+    <mat-card-footer fxLayout="column" fxLayoutAlign="start center">
+      <a routerLink="./signin">{{'signup.already' | translate}}</a>
+    </mat-card-footer>
+  </mat-card>
+</div>

@@ -1,0 +1,15 @@
+#signUpPage{
+    height: 100vh;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-card {
+    width: 40%;
+}
+
+mat-card-footer a {
+    font-size: 15px;
+}

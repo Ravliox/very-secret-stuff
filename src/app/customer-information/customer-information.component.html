@@ -1,0 +1,25 @@
+<fieldset>
+    <legend>
+        <span>{{'app.tabs.personal_details_tab.customer_info.label' | translate}}</span>
+        <button mat-icon-button (click)="add()" [disabled]="readonly"><fa name="plus-circle" ></fa></button>
+        <button mat-icon-button (click)="delete()" [disabled]="readonly"><fa name="minus-circle" ></fa></button>
+    </legend>
+    <div fxLayout="column" class = "formWrapper" fxLayoutGap="20px">
+        <div *ngFor = "let control of customerInformationControl.controls">
+            <form [formGroup]="control" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                <mat-form-field>      
+                    <input matInput [placeholder]="'app.tabs.personal_details_tab.customer_info.mobile_no' | translate" formControlName = "mobile_no" required [readonly] = "readonly">
+                    <mat-error *ngIf="control.controls.mobile_no.invalid">{{getError("mobile", control.controls.mobile_no)}}</mat-error>   
+                </mat-form-field>
+                <mat-form-field>      
+                    <input matInput [placeholder]="'app.tabs.personal_details_tab.customer_info.alt_mobile_no' | translate" formControlName = "alternate_mobile_no" [readonly] = "readonly">
+                    <mat-error *ngIf="control.controls.alternate_mobile_no.invalid">{{getError("alt_mobile", control.controls.alternate_mobile_no)}}</mat-error>   
+                </mat-form-field>
+                <mat-form-field>      
+                    <input matInput [placeholder]="'app.tabs.personal_details_tab.customer_info.email' | translate " formControlName = "email" required [readonly] = "readonly">
+                    <mat-error *ngIf="control.controls.email.invalid">{{getError("email", control.controls.email)}}</mat-error>   
+                </mat-form-field>
+            </form>
+        </div>
+  </div>
+</fieldset>

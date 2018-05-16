@@ -1,0 +1,72 @@
+<fieldset>
+    <legend><span>{{'app.tabs.personal_details_tab.personal_details.label' | translate}}</span></legend>
+    <div fxLayout="column" class = "formWrapper" fxLayoutGap="10px">
+        <form [formGroup]="personalDetailsControl" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxFlex = "1 1 100%" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                <span>
+                    <mat-form-field>
+                        <mat-select [disabled] = "readonly" [placeholder]="'app.tabs.personal_details_tab.personal_details.title' | translate" formControlName="title" required>
+                            <mat-option *ngFor = "let title of titles" [value] = "title.value"> {{ title.viewValue | translate }}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf = "personalDetailsControl.controls.title.invalid">{{ getError("title") }}</mat-error>
+                    </mat-form-field>
+                </span>
+                <span>
+                <mat-form-field>      
+                    <input matInput [placeholder]="'app.tabs.personal_details_tab.personal_details.first_name' | translate" formControlName = "first_name" required [readonly] = "readonly">
+                    <mat-error *ngIf="personalDetailsControl.controls.first_name.invalid">{{getError("first_name")}}</mat-error>   
+                </mat-form-field>
+                </span>
+            </div>
+            <mat-form-field >      
+                <input matInput [placeholder]="'app.tabs.personal_details_tab.personal_details.middle_name' | translate" formControlName = "middle_name" [readonly] = "readonly">
+                <mat-error *ngIf="personalDetailsControl.controls.middle_name.invalid">{{getError("middle_name")}}</mat-error>   
+            </mat-form-field>
+            <mat-form-field >      
+                <input matInput [placeholder]="'app.tabs.personal_details_tab.personal_details.last_name' | translate" formControlName = "last_name" required [readonly] = "readonly">
+                <mat-error *ngIf="personalDetailsControl.controls.last_name.invalid">{{getError("last_name")}}</mat-error>   
+            </mat-form-field>
+        </form>
+        <form [formGroup]="personalDetailsControl" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+            <mat-form-field>
+                <mat-select [disabled] = "readonly" [placeholder]="'app.tabs.personal_details_tab.personal_details.gender' | translate" formControlName="gender" required>
+                    <mat-option *ngFor = "let gender of genders" [value] = "gender.value"> {{ gender.viewValue | translate}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf = "personalDetailsControl.controls.gender.invalid">{{ getError("gender") }}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select [disabled] = "readonly" [placeholder]="'app.tabs.personal_details_tab.personal_details.nationality' | translate" formControlName="nationality" required>
+                    <mat-option *ngFor = "let nationality of nationalities" [value] = "nationality.value"> {{ nationality.viewValue | translate }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf = "personalDetailsControl.controls.nationality.invalid">{{ getError("nationality") }}</mat-error>
+            </mat-form-field>
+            <!-- <mat-form-field>    
+                <input matInput type = "date" placeholder="Date of Birth" formControlName = "date_of_birth" (focusout)="calculateAge()">
+                <mat-error *ngIf = "personalDetailsControl.controls.date_of_birth.invalid">{{ getError("date_of_birth") }}</mat-error>
+            </mat-form-field> -->
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" [placeholder]="'app.tabs.personal_details_tab.personal_details.date' | translate" formControlName = "date_of_birth" (dateChange)="addEvent('change', $event)" [readonly] = "readonly">
+                <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="readonly"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf = "personalDetailsControl.controls.date_of_birth.invalid">{{ getError("date_of_birth") }}</mat-error>
+            </mat-form-field>
+        </form>
+        <form [formGroup]="personalDetailsControl" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+            <mat-form-field>
+                <mat-select [disabled] = "readonly" [placeholder]="'app.tabs.personal_details_tab.personal_details.marital' | translate" formControlName="marital_status" required>
+                    <mat-option *ngFor = "let marital_option of marital_options" [value] = "marital_option.value"> {{ marital_option.viewValue | translate}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf = "personalDetailsControl.controls.marital_status.invalid">{{ getError("marital") }}</mat-error>
+            </mat-form-field>
+            <mat-form-field>      
+                <input matInput [placeholder]="'app.tabs.personal_details_tab.personal_details.age' | translate" formControlName = "age" readonly>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select [disabled] = "readonly" [placeholder]="'app.tabs.personal_details_tab.personal_details.educational' | translate" formControlName="educational_qualification" required> 
+                    <mat-option *ngFor = "let qualification of qualifications" [value] = "qualification.value"> {{ qualification.viewValue | translate}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf = "personalDetailsControl.controls.educational_qualification.invalid">{{ getError("qualification") }}</mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+</fieldset>

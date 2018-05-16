@@ -1,0 +1,15 @@
+#formHeader {
+    padding-left: 1%;
+    padding-right: 1%;
+    height: 5.5vh;
+    border-bottom: 1px #05275e solid;
+}
+
+#formHeader h1 {
+    font-size: 3vh;
+}
+
+img {
+    height: 35px;
+}
+

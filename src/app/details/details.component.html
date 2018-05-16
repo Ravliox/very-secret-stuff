@@ -1,0 +1,29 @@
+<fieldset>
+  <legend><span>{{'app.details.label' | translate}} </span></legend>
+  <div fxLayout="column" class = "formWrapper" fxLayoutGap="20px">
+    <form [formGroup]="detailsForm" class = "form-columns" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxFlex="1 0.3 100%" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+      <mat-form-field >      
+        <input matInput [placeholder]="'app.details.cif' | translate" formControlName = "cif">
+      </mat-form-field>
+      <mat-form-field>      
+          <input matInput [placeholder]="'app.details.account_no' | translate" formControlName = "account_no">
+          <mat-error *ngIf="detailsForm.controls.account_no.invalid">{{getError("account_no")}}</mat-error>      
+      </mat-form-field>
+      <mat-form-field fxHide.lt-md class = "hidden">      
+          <input matInput [placeholder]="'app.details.account_no' | translate" formControlName = "none">   
+      </mat-form-field>
+    </form>
+    <form [formGroup]="detailsForm" class = "form-columns" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxFlex="1 0.3 100%" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+        <mat-form-field>      
+          <input matInput [placeholder]="'app.details.instance_id' | translate" formControlName = "instance_id" class = "readonly" readonly>
+        </mat-form-field>
+        <mat-form-field>    
+        <input matInput [matDatepicker]="myDatePicker" [placeholder]="'app.details.creation' | translate" formControlName = "creation_date" readonly>
+          <mat-datepicker #myDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>    
+            <input matInput [placeholder]="'app.details.initiator' | translate" formControlName = "initiator" readonly>
+        </mat-form-field>
+    </form>
+  </div>
+</fieldset>

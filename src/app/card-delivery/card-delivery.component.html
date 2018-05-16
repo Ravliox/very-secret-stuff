@@ -1,0 +1,53 @@
+<fieldset>
+  <legend>
+    <span>{{'app.tabs.product_details.card_delivery.label' | translate}}</span>
+  </legend>
+  <div fxLayout="column" class = "formWrapper">
+    <form [formGroup]="cardDeliveryControl" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+      <mat-form-field>
+        <mat-select [disabled] = "readonly" [placeholder]="'app.tabs.product_details.card_delivery.card_delivery' | translate" formControlName="card_delivery" required>
+          <mat-option *ngFor = "let card_delivery of card_delivery_options" [value] = "card_delivery.value"> {{ card_delivery.viewValue | translate}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf = "cardDeliveryControl.controls.card_delivery.invalid">{{ getError("card_delivery") }}</mat-error>
+      </mat-form-field>
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center"  fxFlex = "1 1 100%" fxLayoutGap="150px" fxLayoutGap.lt-md="0px">
+        <mat-radio-group formControlName="customer_address">
+          <mat-radio-button [disabled] = "readonly" value="1" color = "primary">{{'app.tabs.product_details.card_delivery.radio1' | translate}}</mat-radio-button>
+          <mat-radio-button [disabled] = "readonly" value="2" color = "primary" class = "margin">{{'app.tabs.product_details.card_delivery.radio2' | translate}}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field>      
+        <mat-select [disabled] = "readonly" placeholder="Address options" formControlName="addrs">
+          <mat-option *ngFor = "let addr of addrs" [value] = "addr.value" (click)="setAddr(addr.value)"> {{ addr.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <form [formGroup]="cardDeliveryControl" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+      <mat-form-field>    
+          <input matInput type = "text" [placeholder]="'app.tabs.product_details.card_delivery.street' | translate" formControlName = "street" [required]="isRequired()" [readonly]="!isRequired()">
+          <mat-error *ngIf = "cardDeliveryControl.controls.street.invalid">{{ getError("street") }}</mat-error>
+      </mat-form-field>
+      <mat-form-field>    
+          <input matInput type = "text" [placeholder]="'app.tabs.product_details.card_delivery.block' | translate" formControlName = "block" [required]="isRequired()" [readonly]="!isRequired()">
+          <mat-error *ngIf = "cardDeliveryControl.controls.block.invalid">{{ getError("block") }}</mat-error>
+      </mat-form-field>
+      <mat-form-field>    
+          <input matInput type = "text" [placeholder]="'app.tabs.product_details.card_delivery.area' | translate" formControlName = "area" [required]="isRequired()" [readonly]="!isRequired()">
+          <mat-error *ngIf = "cardDeliveryControl.controls.area.invalid">{{ getError("area") }}</mat-error>
+      </mat-form-field>
+    </form>
+    <form [formGroup]="cardDeliveryControl" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+      <mat-form-field>    
+        <input matInput type = "text" [placeholder]="'app.tabs.product_details.card_delivery.postcode' | translate" formControlName = "postcode" [required]="isRequired()" [readonly]="!isRequired()">
+        <mat-error *ngIf = "cardDeliveryControl.controls.postcode.invalid">{{ getError("postcode") }}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type = "text" [placeholder]="'app.tabs.product_details.card_delivery.country' | translate" formControlName="country" [required]="isRequired()" [readonly]="!isRequired()">
+        <mat-error *ngIf = "cardDeliveryControl.controls.country.invalid">{{ getError("country") }}</mat-error>
+      </mat-form-field>
+      <mat-form-field fxHide.lt-md class = "hidden">      
+          <input matInput placeholder="Account No." formControlName = "none">   
+      </mat-form-field>
+    </form>
+  </div>
+</fieldset>

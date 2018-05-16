@@ -1,0 +1,36 @@
+<fieldset>
+  <legend><span>{{'app.tabs.product_details.credit_card_details.label' | translate}}</span></legend>
+  <div fxLayout="column" class = "formWrapper">
+    <form [formGroup]="creditCardDetailsControl" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+        <mat-form-field>
+            <mat-select [disabled] = "readonly" [placeholder]="'app.tabs.product_details.credit_card_details.product_name' | translate" formControlName="product_name" required>
+                <mat-option *ngFor = "let product_name of product_names" [value] = "product_name.value"> {{ product_name.viewValue | translate}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf = "creditCardDetailsControl.controls.product_name.invalid">{{ getError("product_name") }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>    
+            <input matInput type = "text" [placeholder]="'app.tabs.product_details.credit_card_details.req_limit' | translate" formControlName = "requested_limit" required [readonly] = "readonly">
+            <mat-error *ngIf = "creditCardDetailsControl.controls.requested_limit.invalid">{{ getError("requested_limit") }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>    
+            <input matInput type = "text" [placeholder]="'app.tabs.product_details.credit_card_details.name_on_card' | translate" formControlName = "name_on_card" (focusout)="toUpper()" [readonly] = "readonly">
+            <mat-error *ngIf = "creditCardDetailsControl.controls.name_on_card.invalid">{{ getError("name_on_card") }}</mat-error>
+        </mat-form-field>
+    </form>
+    <form [formGroup]="creditCardDetailsControl" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutGap="10px" fxLayoutGap.lt-md="0px">
+        <mat-form-field>
+            <mat-select [disabled] = "readonly" [placeholder]="'app.tabs.product_details.credit_card_details.billing_acc' | translate" formControlName="billing_account" required>
+                <mat-option *ngFor = "let billing_account of billing_accounts" [value] = "billing_account.value"> {{ billing_account.viewValue | translate}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf = "creditCardDetailsControl.controls.billing_account.invalid">{{ getError("billing_account") }}</mat-error>
+        </mat-form-field>
+        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center"  fxFlex = "1 1 100%" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
+            <mat-checkbox [disabled] = "readonly" formControlName="new_to_uae" color = "primary">New to UAE</mat-checkbox>
+            <mat-checkbox [disabled] = "readonly" formControlName="is_resident" color = "primary">Is Resident</mat-checkbox>
+        </div>
+        <mat-form-field fxHide.lt-md class = "hidden">      
+            <input matInput placeholder="Account No." formControlName = "none" [readonly] = "readonly">   
+        </mat-form-field>
+    </form>
+  </div>
+</fieldset>

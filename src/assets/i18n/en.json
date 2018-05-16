@@ -1,0 +1,134 @@
+{
+    "signup": {
+        "title": "Sign Up",
+        "subtitle": "Create a new account",
+        "title_person": "Title",
+        "first_name": "First Name",
+        "middle_name": "Middle Name",
+        "last_name": "Last Name",
+        "email": "Email",
+        "username": "Username",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "sign_up": "Sign Up",
+        "already": "Already have an account? Sign in!"
+    },
+    "signin": {
+        "title": "Sign In",
+        "subtitle": "Please enter your gmail account",
+        "username": "Username",
+        "password": "Password",
+        "login": "Login",
+        "login_readonly": "Login Readonly",
+        "sign_up": "Sign Up",
+        "bad_test": "Test Bad Navigation"
+    },
+    "app":{
+        "test": "le test",
+        "details": {
+            "label": "Application Details",
+            "cif": "CIF",
+            "account_no": "Account No.",
+            "instance_id": "Instance ID",
+            "creation": "Creation Date/Time",
+            "initiator": "Initiator"
+        },
+        "tabs": {
+            "personal_button": "Personal Details",
+            "product_button": "Product Details",
+            "personal_details_tab": {
+                "personal_details": {    
+                    "label": "Personal Details",
+                    "title": "Title",
+                    "title_options": {
+                        "mr": "Mr.",
+                        "mrs": "Mrs.",
+                        "miss": "Miss",
+                        "mx": "Mx."
+                    },
+                    "first_name": "First Name",
+                    "middle_name": "Middle Name",
+                    "last_name": "Last Name",
+                    "gender": "Gender",
+                    "gender_options": {
+                        "male": "Male",
+                        "female": "Female",
+                        "other": "Other"
+                    },
+                    "nationality": "Nationality",
+                    "nationality_options": {
+                        "romanian": "Romanian",
+                        "french": "French",
+                        "other": "Other"
+                    },
+                    "date": "Choose a date",
+                    "marital": "Marital Status",
+                    "marital_options": {
+                        "married": "Married",
+                        "not_married": "Not Married"
+                    },
+                    "age": "Age",
+                    "educational": "Education Qualification",
+                    "educational_options": {
+                        "option1": "Option 1",
+                        "option2": "Opion 2"
+                    }
+                },
+                "customer_info": {
+                    "label": "Customer Information",
+                    "mobile_no": "Mobile NO",
+                    "alt_mobile_no": "Alternate Mobile NO",
+                    "email":"Email"
+                },
+                "customer_addr": {
+                    "label": "Customer Address",
+                    "addr_type": "Address Type",
+                    "street": "Street",
+                    "block": "Block",
+                    "area": "Area",
+                    "postcode": "Postcode",
+                    "country": "Country"
+                }
+            },
+            "product_details": {
+                "credit_card_details": {
+                    "label": "Credit Card Details",
+                    "product_name": "Product Name",
+                    "product_name_options": {
+                        "mastercard": "Mastercard Titanium",
+                        "visa": "Visa Electron"
+                    },
+                    "req_limit": "Request Limit",
+                    "name_on_card": "Name on Card",
+                    "billing_acc": "Billing Account",
+                    "billing_acc_options": {
+                        "acc1": "Account 1",
+                        "acc2": "Account 2"
+                    },
+                    "check1": "New to UAE",
+                    "check2": "Is Resident"
+                },
+                "card_delivery": {
+                    "label": "Card Delivery",
+                    "card_delivery": "Card Delivery",
+                    "card_delivery_options": {
+                        "option1": "Option 1",
+                        "option2": "Option 2"
+                    },
+                    "radio1": "Customer Address",
+                    "radio2": "Other Address",
+                    "street":"Street",
+                    "block":"Block",
+                    "area":"Area",
+                    "postcode":"Postcode",
+                    "country":"Country"
+                }
+            }
+        },
+        "buttons": {
+            "save": "Save",
+            "submit": "Submit",
+            "cancel": "Cancel"
+        }
+    }
+}

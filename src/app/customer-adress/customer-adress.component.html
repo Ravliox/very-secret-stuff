@@ -1,0 +1,52 @@
+<fieldset>
+  <legend>
+    <span>{{'app.tabs.personal_details_tab.customer_addr.label' | translate}}</span><button mat-icon-button (click)="addRow()" [disabled]="readonly"><fa name="plus-circle"></fa></button>
+  </legend>
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef> {{'app.tabs.personal_details_tab.customer_addr.addr_type' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <p>{{element.type}}</p>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="street">
+      <mat-header-cell *matHeaderCellDef> {{'app.tabs.personal_details_tab.customer_addr.street' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        <p>{{element.street}}</p>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="block">
+      <mat-header-cell *matHeaderCellDef> {{'app.tabs.personal_details_tab.customer_addr.block' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        <p>{{element.block}}</p>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="area">
+      <mat-header-cell *matHeaderCellDef> {{'app.tabs.personal_details_tab.customer_addr.area' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        <p>{{element.area}}</p>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="postcode">
+      <mat-header-cell *matHeaderCellDef> {{'app.tabs.personal_details_tab.customer_addr.postcode' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <p>{{element.postcode}}</p>  
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef> {{'app.tabs.personal_details_tab.customer_addr.country' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <p>{{element.country}}</p>  
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="icon">
+      <mat-header-cell *matHeaderCellDef class = "last-cell">Icon</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button (click) = "editRow(element)" [disabled]="readonly"><fa name="edit"></fa></button>
+        <button mat-icon-button (click) = "deleteRow(element)" [disabled]="readonly"><fa name="minus-circle"></fa></button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</fieldset>

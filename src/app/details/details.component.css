@@ -1,0 +1,28 @@
+#details {
+    margin-top: 30px;
+}
+
+div {
+    height: 50px;
+    overflow: hidden;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue{
+    background-color:blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.formWrapper{
+    height: 100%;
+}

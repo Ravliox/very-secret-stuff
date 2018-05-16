@@ -1,0 +1,21 @@
+#signin {
+    height: 100vh;
+}
+
+mat-card-title, mat-card-subtitle{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+p {
+    visibility: hidden;
+    color: red;
+    text-align: center;
+}
+
+.active {
+    visibility: visible;
+}
